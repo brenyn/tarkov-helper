@@ -2,12 +2,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Muli&family=Ubuntu&display=swap');
 
+:root{
+  --main-bg-color: #333;
+  --un-blue: #2690d4;
+}
+
 body {
   margin:0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: 'Muli', Arial, Helvetica, sans-serif;
-  background-color: #333;
+  background-color: var(--main-bg-color);
   color: white;
   font-size: 1.1em;
   line-height: 1.5;
@@ -33,7 +38,7 @@ p{
 
 .btn{
   display: inline-block;
-  background: #333;
+  background: var(--main-bg-color);
   color: white;
   text-decoration: none;
   padding: 1em 2em;
@@ -43,7 +48,7 @@ p{
 
 .btn:hover{
   background:lightgray;
-  color:#333;
+  color:var(--main-bg-color);
 }
 
 
@@ -54,7 +59,7 @@ nav{
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: #2690d4;
+  background-color:  var(--un-blue);
   position: relative;
 }
   
@@ -106,7 +111,7 @@ nav .logo{
     right: 0px;
     height: 92vh;
     top: 8vh;
-    background-color:#2690d4;
+    background-color: var(--un-blue);
     display: flex;
     flex-direction: column;
     align-items: center;
