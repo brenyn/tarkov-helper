@@ -1,6 +1,4 @@
-/* https://www.youtube.com/watch?v=M3qBpPw77qo */
-
-/* header */
+/********** HEADER ************/
 #showcase{
   min-height: 450px;
   color: white;
@@ -29,14 +27,14 @@
   padding: 0 1.5em;
 }
 
-/* section a */
+/********** SECTION A **********/
 #section-a {
   background: white;
   color: #333;
   padding-bottom: 2em;
 }
 
-/* section b */
+/********** SECTION B **********/
 #section-b {
   padding: 2em 1em 1em;
 }
@@ -57,14 +55,14 @@
   padding: 1.5em;
 }
 
-/* section c */
+/********** SECTION C **********/
 #section-c{
   background:white;
   color:#333;
   padding: 2em;
 }
 
-/* section d */
+/********** SECTION D **********/
 #section-d .box{
   padding: 2em;
   color: white;
@@ -74,7 +72,7 @@
   background-color: #2690d4;
 }
 
-/* media queries */
+/********** MEDIA QUERIES **********/
 @media(min-width: 768px){
   .grid{
     display:grid;

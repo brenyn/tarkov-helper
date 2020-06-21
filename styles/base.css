@@ -96,7 +96,7 @@ nav .logo{
   text-align:center;
 }
 
-/********** MEDIA QUERIES **********/
+/********** MEDIA QUERIES SMALL SCREEN **********/
 @media(max-width:768px){
   body{
     overflow-x: hidden;
@@ -125,7 +125,7 @@ nav .logo{
   }
 }
 
-/* media queries */
+/********** MEDIA QUERIES LARGE SCREEN **********/
 @media(min-width: 768px){
 
   .burger{
