@@ -128,13 +128,18 @@ nav .logo{
 /********** MEDIA QUERIES LARGE SCREEN **********/
 @media(min-width: 768px){
 
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(8, 1fr);
+  }
+
   .burger{
     display: none;
   }
 
-  /*.box, #main-footer div{
+  .box, #main-footer div{
     grid-column: span 4;
-  }*/
+  }
 }
 
 /********** ANIMATIONS **********/

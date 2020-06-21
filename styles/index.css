@@ -74,21 +74,12 @@
 
 /********** MEDIA QUERIES **********/
 @media(min-width: 768px){
-  .grid{
-    display:grid;
-    grid-template-columns: repeat(8, 1fr);
-  }
-
   .burger{
     display: none;
   }
 
   .content-wrap, #section-b ul{
     grid-column: span 8;
-  }
-
-  .box, #main-footer div{
-    grid-column: span 4;
   }
 
   #section-b ul{
