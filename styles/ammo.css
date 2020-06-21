@@ -1,0 +1,40 @@
+.table-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ammo-table{
+  border-collapse: collapse;
+  font-size: 0.9em;
+  min-width: 20%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.075);
+  background-color: #59676ed3;
+}
+
+.ammo-table thead tr{
+  text-align: left;
+  font-weight: bold;
+}
+
+.ammo-table th,
+.ammo-table td{
+  padding: 12px 15px;
+}
+
+.ammo-table tr{
+  border-bottom: 1px rgba(100, 148, 237, 0.342) solid;
+}
+
+.ammo-table tbody tr:nth-child(odd){
+  background-color: #59676e;
+}
+
+.ammo-table tr:hover{
+  background-color: salmon;
+}
+
+.ammo-table tr:nth-child(odd):hover{
+  background-color: salmon;
+}
