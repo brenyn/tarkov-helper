@@ -1,10 +1,4 @@
-.table-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
+/********** AMMO TABLE STYLING **********/
 .ammo-table{
   border-collapse: collapse;
   font-size: 0.9em;
@@ -37,4 +31,43 @@
 
 .ammo-table tr:nth-child(odd):hover{
   background-color: salmon;
+}
+
+
+/********** TAB STYLING **********/
+[data-tab-content]{
+  display:none;
+}
+
+.active[data-tab-content]{
+  display:block;
+}
+
+.tab-container{
+  display: flex;
+  justify-content: stretch;
+}
+
+.tabs{
+  background-color: var(--un-blue);
+  height: 100vh;
+  padding: 0;
+  margin: 0px;
+  width: 10vw;
+}
+
+.tabs li{
+  list-style: none;
+}
+
+.tab:hover{
+  cursor: pointer;
+  background-color: salmon;
+}
+
+/********** AMMO INFORMATION CONTAINER STYLING **********/
+.tab-content{
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
 }
