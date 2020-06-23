@@ -34,8 +34,12 @@ const makeTabs = () => {
             tabContents.forEach(tabContent => {
                 tabContent.classList.remove('active'); // on click remove active class from all elements of type [data-tab-content] 
             });
+            tabs.forEach(tab => {
+                tab.classList.remove('active'); // on click remove active class from all elements of type [data-tab-content] 
+            });
             const target = document.querySelector(tab.dataset.tabTarget);
             target.classList.add('active'); // on click add active class to specified [data-tab-target]
+            tab.classList.add('active');
         });
     });
 }
