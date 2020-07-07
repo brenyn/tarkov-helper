@@ -37,9 +37,9 @@ ammoTypes = [
 ]
 
 # for ammo in ammoTypes:
-# 	print(ammo['type'])
+# 	print(ammo['type']) # make a tab/header for each ammo type
 # 	for i in range(len(ammo['rounds'])):
-# 		print(ammo['rounds'][i]['round_name'])
+# 		print(ammo['rounds'][i]['round_name']) # table data for each ammo type
 
 @app.route("/")
 def home():
