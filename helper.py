@@ -47,7 +47,7 @@ def home():
 
 @app.route("/ammo")
 def ammo():
-    return render_template('ammo.html', ammoTypes=ammoTypes)
+    return render_template('ammo.html', ammoTypes=ammoTypes, title='Ammo')
 
 # run server in debug mode if script is run from command line
 if __name__ == '__main__':

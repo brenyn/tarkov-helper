@@ -1,139 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+
+{% block styles %}
   <link rel="stylesheet" href="../static/styles/base.css">
   <link rel="stylesheet" href="../static/styles/index.css">
-  <title>Tarkov Helper</title>
-</head>
-<body>
+{% endblock styles %}
 
-  <nav>
 
-    <div class="logo">
-      <h4>Tarkov Helper</h4>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Quests</a></li>
-      <li><a href="#">Items</a></li>
-      <li><a href="#">Weapons</a></li>
-      <li><a href="/ammo">Ammo</a></li>
-      <li><a href="#">Test</a></li>
-    </ul>
+{% block header %}
+<header id="showcase" class="grid">
+  <div class="bg-image"></div>
+  <div class="content-wrap">
+    <h1>Welcome to Tarkov Helper</h1>
+    <p>
+      Welcome to Tarkov Helper. The goal of this project is to help you become a better Tarkov player by providing many essential resources in one location.
+    </p>
+    <a href="#section-b" class="btn">Read more</a>
+  </div>
+</header>
+{% endblock header %}
 
-    <div class="burger">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
-    </div>
-
-  </nav>
-
-  <!--Header-->
-  <header id="showcase" class="grid">
-    <div class="bg-image"></div>
+{% block content %}
+  <section id="section-a" class="grid">
     <div class="content-wrap">
-      <h1>Welcome to Tarkov Helper</h1>
-      <p>
-        Welcome to Tarkov Helper. The goal of this project is to help you become a better Tarkov player by providing many essential resources in one location.
-      </p>
-      <a href="#section-b" class="btn">Read more</a>
+      <h2 class="content-title">Resources</h2>
+      <p>A task flowchart where you can track your progress in the questline by using our checklist, a spreadsheet that keeps track of what items you need to collect depending on where you are in the questline, and a collection of gun builds for you to check out.</p>
     </div>
-  </header>
+  </section>
 
-  <!-- main -->
-  <main id="main">
-
-    <section id="section-a" class="grid">
-      <div class="content-wrap">
-        <h2 class="content-title">Resources</h2>
-        <p>A task flowchart where you can track your progress in the questline by using our checklist, a spreadsheet that keeps track of what items you need to collect depending on where you are in the questline, and a collection of gun builds for you to check out.</p>
-      </div>
-    </section>
-
-    <!-- section-b -->
-    <section id="section-b" class="grid">
-      <ul>
-        <li>
-          <div class="card">
-            <img src="https://images.pexels.com/photos/3299/postit-scrabble-to-do.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <div class="card-content">
-              <h3 class="card-title">Quests</h3>
-              <p>A quest flowchart where you can track your progress in the questline by using our checklist, see what quests come after, watch videos on different quests, and more relevant quest information.</p>
-            </div>
+  <!-- section-b -->
+  <section id="section-b" class="grid">
+    <ul>
+      <li>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/3299/postit-scrabble-to-do.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+          <div class="card-content">
+            <h3 class="card-title">Quests</h3>
+            <p>A quest flowchart where you can track your progress in the questline by using our checklist, see what quests come after, watch videos on different quests, and more relevant quest information.</p>
           </div>
-        </li>
+        </div>
+      </li>
 
-        <li>
-          <div class="card">
-            <img src="https://images.pexels.com/photos/6200/wood-pen-usb-vintage.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <div class="card-content">
-              <h3 class="card-title">Items</h3>
-              <p>A spreadsheet that tracks what items you need to collect as well as if they need to be found in raid or not. Updates depending on where you are in the questline.</p>
-            </div>
+      <li>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/6200/wood-pen-usb-vintage.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+          <div class="card-content">
+            <h3 class="card-title">Items</h3>
+            <p>A spreadsheet that tracks what items you need to collect as well as if they need to be found in raid or not. Updates depending on where you are in the questline.</p>
           </div>
-        </li>
+        </div>
+      </li>
 
-        <li>
-          <div class="card">
-            <img src="https://images.pexels.com/photos/889709/pexels-photo-889709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <div class="card-content">
-              <h3 class="card-title">Gunsmithing</h3>
-              <p>A collection of gun builds compiled from our favorite YouTubers/streamers. Includes budget builds up to meta builds for all weapons.</p>
-            </div>
+      <li>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/889709/pexels-photo-889709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+          <div class="card-content">
+            <h3 class="card-title">Gunsmithing</h3>
+            <p>A collection of gun builds compiled from our favorite YouTubers/streamers. Includes budget builds up to meta builds for all weapons.</p>
           </div>
-        </li>
+        </div>
+      </li>
 
-        <li>
-          <div class="card">
-            <img src="https://images.pexels.com/photos/889709/pexels-photo-889709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <div class="card-content">
-              <h3 class="card-title">Gunsmithing</h3>
-              <p>A collection of gun builds compiled from our favorite YouTubers/streamers. Includes budget builds up to meta builds for all weapons.</p>
-            </div>
+      <li>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/889709/pexels-photo-889709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+          <div class="card-content">
+            <h3 class="card-title">Gunsmithing</h3>
+            <p>A collection of gun builds compiled from our favorite YouTubers/streamers. Includes budget builds up to meta builds for all weapons.</p>
           </div>
-        </li>
+        </div>
+      </li>
 
-        <li>
-          <div class="card">
-            <img src="https://images.pexels.com/photos/889709/pexels-photo-889709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            <div class="card-content">
-              <h3 class="card-title">Gunsmithing</h3>
-              <p>A collection of gun builds compiled from our favorite YouTubers/streamers. Includes budget builds up to meta builds for all weapons.</p>
-            </div>
+      <li>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/889709/pexels-photo-889709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+          <div class="card-content">
+            <h3 class="card-title">Gunsmithing</h3>
+            <p>A collection of gun builds compiled from our favorite YouTubers/streamers. Includes budget builds up to meta builds for all weapons.</p>
           </div>
-        </li>
-      </ul>
-    </section>
+        </div>
+      </li>
+    </ul>
+  </section>
 
-    <!-- section-c -->
-    <section id="section-c" class="grid">
-      <div class="content-wrap">
-        <h2 class="content-title">All your Tarkov needs</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptate unde voluptatum placeat magni sunt quas blanditiis ea id beatae.</p>
-      </div>
-    </section>
+  <!-- section-c -->
+  <section id="section-c" class="grid">
+    <div class="content-wrap">
+      <h2 class="content-title">All your Tarkov needs</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptate unde voluptatum placeat magni sunt quas blanditiis ea id beatae.</p>
+    </div>
+  </section>
 
-    <!-- section-d -->
-    <section id="section-d" class="grid">
-      <div class="box">
-        <h2 class="content-title">Contact us</h2>
-        <p>Have any comments or suggestions? Have any ideas for features we could add? Contact us here and we'll be sure to read your suggestions!</p>
-      </div>
-      <div class="box">
-        <h2 class="content-title">About us</h2>
-        <p>We are a group of passionate Tarkov players who understand that Tarkov can be a rough place at times (most of the time for some of us). Our goal with this project is to make the game more accessible for casual players and more convienent for you hardcore players out there.</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- footer -->
-  <footer id="main-footer" class="grid">
-    <div>Tarkov Helper</div>
-    <div>Project by: Brenyn</div>
-  </footer>
-<script src="../static/scripts/script.js"></script>
-</body>
-</html>
+  <!-- section-d -->
+  <section id="section-d" class="grid">
+    <div class="box">
+      <h2 class="content-title">Contact us</h2>
+      <p>Have any comments or suggestions? Have any ideas for features we could add? Contact us here and we'll be sure to read your suggestions!</p>
+    </div>
+    <div class="box">
+      <h2 class="content-title">About us</h2>
+      <p>We are a group of passionate Tarkov players who understand that Tarkov can be a rough place at times (most of the time for some of us). Our goal with this project is to make the game more accessible for casual players and more convienent for you hardcore players out there.</p>
+    </div>
+  </section>
+{% endblock content %}

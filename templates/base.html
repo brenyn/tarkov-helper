@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% block styles %}{% endblock styles %}
+
+  {% if title %}
+    <title>Tarkov Helper - {{ title }}</title>
+  {% else %}
+    <title>Tarkov Helper</title>
+  {% endif %}
+
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <h4>Tarkov Helper</h4>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="#">Quests</a></li>
+      <li><a href="#">Items</a></li>
+      <li><a href="#">Weapons</a></li>
+      <li><a href="/ammo">Ammo</a></li>
+      <li><a href="#">Test</a></li>
+    </ul>
+
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </nav>
+
+  {% block header %}{% endblock header %}
+
+  <main> <!-- main will be unique to each page-->
+    {% block content %}{% endblock content%}
+  </main>
+
+
+  <footer id="main-footer" class="grid">
+    <div>Tarkov Helper</div>
+    <div>Project by: Brenyn</div>
+  </footer>
+
+  <script src="../static/scripts/script.js" defer></script> <!-- defer until after html has loaded-->
+</body>
+</html>
