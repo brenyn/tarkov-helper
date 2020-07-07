@@ -8,82 +8,41 @@
 {% block content %}
   <div class="tab-container">
     <ul class ="tabs">
-      <li data-tab-target="#ammo-type-762x39" class= "tab">762x39</li>
-      <li data-tab-target="#ammo-type-762x51" class= "tab">762x51</li>
-      <li data-tab-target="#ammo-type-545x39" class= "tab">545x39</li>
+      {% for ammo in ammoTypes %}
+        <li data-tab-target="#ammo-type-{{ammo['type']}}" class= "tab">{{ammo['type']}}</li>
+      {% endfor %}
     </ul>
 
+
     <div class="tab-content">
-      <div id="ammo-type-762x39" class ="active" data-tab-content>
-        <h2>762x39 ammo</h2>
-        <table class="ammo-table">
+      {% for ammo in ammoTypes %}
+        <div id="ammo-type-{{ammo['type']}}" data-tab-content>
+          <h2>{{ammo['type']}} Ammo</h2>
 
-          <thead>
-            <tr>
-              <th>Round</th>
-              <th>Damage</th>
-              <th>Penetration</th>
-              <th>Armor damage(%)</th>
-              <th>Accuracy(%)</th>
-              <th>Recoil(%)</th>
-              <th>Fragmentation chance(%)</th>
-            </tr>
-          </thead>
+          <table class="ammo-table">
+            <thead>
+              <tr>
+                <th>Round</th>
+                <th>Damage</th>
+                <th>Penetration</th>
+                <th>Armor damage(%)</th>
+                <th>Accuracy(%)</th>
+                <th>Recoil(%)</th>
+                <th>Fragmentation chance(%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for round in ammo['rounds'] %}
+                <tr>
+                  <td>{{round['round_name']}}</td>
+                  <td>{{round['damage']}}</td>
+                  <td>{{round['penetration']}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
 
-          <tbody>
-            <tr>
-              <td>HP</td>
-              <td>87</td>
-              <td>15</td>
-              <td>35</td>
-              <td>-5</td>
-              <td></td>
-              <td>26</td>
-            </tr>
-            <tr>
-              <td>US</td>
-              <td>56</td>
-              <td>29</td>
-              <td>42</td>
-              <td>+5</td>
-              <td>-30</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>T45M</td>
-              <td>62</td>
-              <td>30</td>
-              <td>46</td>
-              <td>-4</td>
-              <td>-6</td>
-              <td>12</td>
-            </tr>
-            <tr>
-              <td>PS</td>
-              <td>57</td>
-              <td>32</td>
-              <td>52</td>
-              <td></td>
-              <td></td>
-              <td>25</td>
-            </tr>
-            <tr>
-              <td>BP</td>
-              <td>58</td>
-              <td>47</td>
-              <td>63</td>
-              <td>-3</td>
-              <td>+5</td>
-              <td>12</td>
-            </tr>
-          </tbody>
-        </table>
+        </div>
+      {% endfor %}
     </div>
-    <div id="ammo-type-762x51" data-tab-content>
-      <h2>762x51 ammo</h2>
-    </div>
-    <div id="ammo-type-545x39" data-tab-content>
-      <h2>545x39 ammo</h2>
-    </div>
-  </div>
 {% endblock content %}

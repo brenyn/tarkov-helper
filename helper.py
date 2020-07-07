@@ -23,14 +23,14 @@ ammoTypes = [
     'rounds':
       [
         {
-          'round_name':'HP',
-          'damage':87,
-          'penetration':15
+          'round_name':'M61',
+          'damage':99,
+          'penetration':98
         },
         {
-          'round_name':'US',
-          'damage':56,
-          'penetration':29
+          'round_name':'M62',
+          'damage':89,
+          'penetration':88
         }
       ]
   },
