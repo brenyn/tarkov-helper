@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  <link rel="stylesheet" href="../static/styles/base.css">
+{% endblock styles %}
+
+{% block content %}
+  <div>
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+
+      <fieldset>
+        <legend>Login</legend>
+
+        <div>
+          {{ form.username.label }}
+
+          {% if form.username.errors %}
+            {{form.username}}
+            <div class="invalid-feedback">
+              {% for error in form.username.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.username }}
+          {% endif %}
+        </div>
+
+        <div>
+          {{ form.password.label }}
+          {% if form.password.errors %}
+          {{form.password}}
+          <div class="invalid-feedback">
+            {% for error in form.password.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+          {% else %}
+            {{ form.password }}
+          {% endif %}        
+        </div>
+
+        <div class="form-check">
+          {{form.remember(class="form-check-input")}}
+          {{form.remember.label(class="form-check-label")}}
+        </div>
+      </fieldset>
+
+      <div>
+        {{ form.submit }}
+      </div>
+
+      <small>
+        <a href="#">Forgot username or password?</a>
+      </small>
+    </form>
+  </div>
+
+  <div>
+    <small>
+      Need an account? <a href="{{ url_for('login') }}">Register Here</a>
+    </small>
+  </div>
+{% endblock content %}

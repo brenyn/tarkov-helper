@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegistrationForm, LoginForm
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
@@ -56,14 +56,26 @@ def home():
 def ammo():
     return render_template('ammo.html', ammoTypes=ammoTypes, title='Ammo')
 
-@app.route("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def register():
   form = RegistrationForm()
+
+  if form.validate_on_submit():
+    flash(f'Account created for {form.username.data}!', 'success')
+    return redirect(url_for('home'))
+
   return render_template('register.html', title="Register",form=form)
 
-@app.route("/login")
+@app.route("/login", methods=['GET','POST'])
 def login():
   form = LoginForm()
+  if form.validate_on_submit():
+    if form.username.data == 'remyS' and form.password.data == 'password':
+      flash('You have been logged in!', 'success')
+      return redirect(url_for('home'))
+    else:
+      flash("Login unsuccessful. Please check username and password.", 'danger')
+
   return render_template('login.html', title="Login",form=form)
 
 # run server in debug mode if script is run from command line
