@@ -1,5 +1,12 @@
 from flask import Flask, render_template
+from forms import RegistrationForm, LoginForm
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = '2a9421a498f13bd18ce8cc0851dd7413'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+
+db = SQLAlchemy(app)
 
 ammoTypes = [
   {
@@ -48,6 +55,16 @@ def home():
 @app.route("/ammo")
 def ammo():
     return render_template('ammo.html', ammoTypes=ammoTypes, title='Ammo')
+
+@app.route("/register")
+def register():
+  form = RegistrationForm()
+  return render_template('register.html', title="Register",form=form)
+
+@app.route("/login")
+def login():
+  form = LoginForm()
+  return render_template('login.html', title="Login",form=form)
 
 # run server in debug mode if script is run from command line
 if __name__ == '__main__':
