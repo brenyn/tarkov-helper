@@ -19,12 +19,11 @@
       <h4>Tarkov Helper</h4>
     </div>
     <ul class="nav-links">
-      <li><a href="/">Home</a></li>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
       <li><a href="#">Quests</a></li>
-      <li><a href="#">Items</a></li>
-      <li><a href="#">Weapons</a></li>
-      <li><a href="/ammo">Ammo</a></li>
-      <li><a href="#">Test</a></li>
+      <li><a href="{{ url_for('ammo')}} ">Ammo</a></li>
+      <li><a href="{{ url_for('login') }}">Login</a></li>
+      <li><a href="{{ url_for('register') }}">Register</a></li>
     </ul>
 
     <div class="burger">
