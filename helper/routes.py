@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from helper import app, db, bcrypt
 from helper.forms import RegistrationForm, LoginForm
 from helper.models import User
@@ -85,7 +85,8 @@ def login():
     user = User.query.filter_by(username=form.username.data).first()
     if user and bcrypt.check_password_hash(user.password, form.password.data):
       login_user(user, remember=form.remember.data)
-      return redirect(url_for('home'))
+      next_page = request.args.get('next') # next returns the page the user was trying to access before being redirected to the login page
+      return redirect(next_page) if next_page else redirect(url_for('home'))
     else:
       flash("Login unsuccessful. Please check username and password.", 'danger')
 
