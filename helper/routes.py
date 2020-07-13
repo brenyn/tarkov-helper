@@ -2,7 +2,7 @@ from flask import render_template, url_for, flash, redirect
 from helper import app, db, bcrypt
 from helper.forms import RegistrationForm, LoginForm
 from helper.models import User
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, current_user, logout_user, login_required
 
 ammoTypes = [
   {
@@ -95,3 +95,8 @@ def login():
 def logout():
   logout_user()
   return redirect(url_for('home'))
+
+@app.route("/account")
+@login_required
+def account():
+  return render_template("account.html", title='Account')
