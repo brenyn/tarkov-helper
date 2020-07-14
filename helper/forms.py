@@ -23,7 +23,7 @@ class RegistrationForm(FlaskForm):
 
   def validate_email(self, email):
     email = User.query.filter_by(email=email.data).first()
-    if email:
+    if email and email!= '':
       raise ValidationError('Email is already in use. Please choose another.')
 
 ##### LOGIN FORM #####
@@ -40,7 +40,7 @@ class LoginForm(FlaskForm):
 class UpdateAccountForm(FlaskForm):
   username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
 
-  email = StringField('Email', validators=[Optional(), Email()])
+  email = StringField('Email', validators=[Email(), Optional()])
 
   submit = SubmitField('Update')
 
@@ -51,7 +51,7 @@ class UpdateAccountForm(FlaskForm):
         raise ValidationError('Username is already in use. Please choose another.')
 
   def validate_email(self, email):
-    if email.data != current_user.email:
+    if email.data != current_user.email and email.data != '':
       email = User.query.filter_by(email=email.data).first()
       if email:
         raise ValidationError('Email is already in use. Please choose another.')
