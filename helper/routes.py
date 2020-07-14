@@ -67,7 +67,7 @@ def register():
     db.session.add(user)
     db.session.commit()
 
-    flash(f'Your account has been created, you are now able to login.', 'success')
+    flash('Your account has been created, you are now able to login.', 'success')
 
     return redirect(url_for('login'))
 
@@ -86,6 +86,7 @@ def login():
     if user and bcrypt.check_password_hash(user.password, form.password.data):
       login_user(user, remember=form.remember.data)
       next_page = request.args.get('next') # next returns the page the user was trying to access before being redirected to the login page
+      flash('You are now logged in.', "success")
       return redirect(next_page) if next_page else redirect(url_for('home'))
     else:
       flash("Login unsuccessful. Please check username and password.", 'danger')
@@ -97,7 +98,7 @@ def logout():
   logout_user()
   return redirect(url_for('home'))
 
-@app.route("/account")
+@app.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
   form = UpdateAccountForm()
