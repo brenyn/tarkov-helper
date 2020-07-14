@@ -26,7 +26,7 @@
   
             {% if form.username.errors %}
               {{form.username}}
-              <div class="invalid-feedback">
+              <div>
                 {% for error in form.username.errors %}
                   <span>{{ error }}</span>
                 {% endfor %}
@@ -40,7 +40,7 @@
             {{ form.email.label }}
             {% if form.email.errors %}
             {{form.email}}
-            <div class="invalid-feedback">
+            <div>
               {% for error in form.email.errors %}
                 <span>{{ error }}</span>
               {% endfor %}
