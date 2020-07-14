@@ -5,6 +5,14 @@
 {% endblock styles %}
 
 {% block content %}
-  <h1>{{ current_user.username }}</h1>
-  <p>Will have user's current quests, items required, etc</p>
+  <div class="content-section">
+    <div class="media">
+      <img class="img-fluid" src="{{ image_file }}">
+      <div class="media-body">
+        <h2 class="account-heading">{{ current_user.username }}</h2>
+        <p class="text-secondary">{{ current_user.email }}</p>
+      </div>
+    </div>
+    <!-- FORM HERE -->
+  </div>
 {% endblock content %}
