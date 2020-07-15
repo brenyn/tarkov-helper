@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request
 from helper import app, db, bcrypt
-from helper.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from helper.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
 from helper.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -116,3 +116,36 @@ def account():
 
   image_file = url_for('static', filename='images/'+'banners/'+'/skier-banner.jpg')
   return render_template("account.html", title='Account', image_file=image_file, form=form)
+
+def send_reset_email(user):
+  pass
+
+@app.route("/reset_password", methods=['GET','POST'])
+def reset_request():
+  if current_user.is_authenticated:
+    return redirect(url_for('home'))
+
+  form = RequestResetForm()
+
+  if form.validate_on_submit():
+    user = User.query.filter_by(email=form.email.data).first()
+    send_reset_email(user)
+    flash('An email has been sent with instructions to reset your password.', 'info')
+    return redirect(url_for('login'))
+
+  return render_template('reset_request.html', title='Reset Password', form=form)
+
+@app.route("/reset_password/<token>", methods=['GET','POST'])
+def reset_token(token):
+  if current_user.is_authenticated:
+    return redirect(url_for('home'))
+
+  user = User.verify_reset_token(token)
+
+  if user is None:
+    flash('That token is invalid or expired.', 'warning')
+    return redirect(url_for('reset_request'))
+  
+  form = ResetPasswordForm()
+
+  return render_template('reset_token.html', title='Reset Password', form=form)
