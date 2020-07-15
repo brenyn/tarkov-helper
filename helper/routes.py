@@ -1,8 +1,9 @@
 from flask import render_template, url_for, flash, redirect, request
-from helper import app, db, bcrypt
+from helper import app, db, bcrypt, mail
 from helper.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
 from helper.models import User
 from flask_login import login_user, current_user, logout_user, login_required
+from flask_mail import Message
 
 ammoTypes = [
   {
@@ -118,7 +119,12 @@ def account():
   return render_template("account.html", title='Account', image_file=image_file, form=form)
 
 def send_reset_email(user):
-  pass
+  token = user.get_reset_token(user)
+  msg = Message('Password Reset Request', sender="tarkovtutor@gmail.com",recipients=[user.email])
+  msg.body = f'''To reset your password visit the following link:
+{url_for('reset_token',token=token,_external=True)}
+
+If you did not make this request please ignore this email, no changes will be made to your account.'''
 
 @app.route("/reset_password", methods=['GET','POST'])
 def reset_request():
@@ -147,5 +153,16 @@ def reset_token(token):
     return redirect(url_for('reset_request'))
   
   form = ResetPasswordForm()
+
+  if form.validate_on_submit():
+    # if form is valid hash the password
+    hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+    # add the new user to the database
+    user.password = hashed_password
+    db.session.commit()
+    flash('Your password has been updated, you are now able to login.', 'success')
+    return redirect(url_for('login'))
+
+  return render_template('register.html', title="Register",form=form)
 
   return render_template('reset_token.html', title='Reset Password', form=form)
