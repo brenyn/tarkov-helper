@@ -40,14 +40,17 @@ ammoTypes = [
   },
 ]
 
+##### HOME ROUTE #####
 @app.route("/")
 def home():
   return render_template('index.html')
 
+##### AMMO ROUTE #####
 @app.route("/ammo")
 def ammo():
     return render_template('ammo.html', ammoTypes=ammoTypes, title='Ammo')
 
+##### REGISTER ROUTE #####
 @app.route("/register", methods=['GET', 'POST'])
 def register():
 
@@ -74,6 +77,7 @@ def register():
 
   return render_template('register.html', title="Register",form=form)
 
+##### LOGIN ROUTE #####
 @app.route("/login", methods=['GET','POST'])
 def login():
 
@@ -94,11 +98,13 @@ def login():
 
   return render_template('login.html', title="Login",form=form)
 
+##### LOGOUT ROUTE #####
 @app.route("/logout")
 def logout():
   logout_user()
   return redirect(url_for('home'))
 
+##### ACCOUNT ROUTE #####
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
@@ -127,6 +133,7 @@ def send_reset_email(user):
 If you did not make this request please ignore this email, no changes will be made to your account.'''
   mail.send(msg)
 
+##### RESET PASSWORD ROUTE #####
 @app.route("/reset_password", methods=['GET','POST'])
 def reset_request():
   if current_user.is_authenticated:
@@ -142,6 +149,7 @@ def reset_request():
 
   return render_template('reset_request.html', title='Reset Password', form=form)
 
+##### CHANGE PASSWORD ROUTE #####
 @app.route("/reset_password/<token>", methods=['GET','POST'])
 def reset_token(token):
   if current_user.is_authenticated:
