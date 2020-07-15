@@ -119,12 +119,13 @@ def account():
   return render_template("account.html", title='Account', image_file=image_file, form=form)
 
 def send_reset_email(user):
-  token = user.get_reset_token(user)
+  token = user.get_reset_token()
   msg = Message('Password Reset Request', sender="tarkovtutor@gmail.com",recipients=[user.email])
   msg.body = f'''To reset your password visit the following link:
 {url_for('reset_token',token=token,_external=True)}
 
 If you did not make this request please ignore this email, no changes will be made to your account.'''
+  mail.send(msg)
 
 @app.route("/reset_password", methods=['GET','POST'])
 def reset_request():
@@ -150,7 +151,7 @@ def reset_token(token):
 
   if user is None:
     flash('That token is invalid or expired.', 'warning')
-    return redirect(url_for('reset_request'))
+    return redirect(url_for('login'))
   
   form = ResetPasswordForm()
 
@@ -162,7 +163,5 @@ def reset_token(token):
     db.session.commit()
     flash('Your password has been updated, you are now able to login.', 'success')
     return redirect(url_for('login'))
-
-  return render_template('register.html', title="Register",form=form)
 
   return render_template('reset_token.html', title='Reset Password', form=form)

@@ -57,7 +57,7 @@ class UpdateAccountForm(FlaskForm):
         raise ValidationError('Email is already in use. Please choose another.')
 
 ##### REQUEST RESET FORM #####
-class RequestResetForm(FlaskForm)
+class RequestResetForm(FlaskForm):
   email = StringField('Email', validators=[DataRequired(), Email()])
   submit = SubmitField('Request Password Reset')
 
@@ -67,7 +67,7 @@ class RequestResetForm(FlaskForm)
       raise ValidationError('There is no account with that email. You must register first.')
 
 ##### RESET PASSWORD FORM #####
-class ResetPasswordForm(FlaskForm)
+class ResetPasswordForm(FlaskForm):
   password = PasswordField('Password', validators=[DataRequired()])
   confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
   submit = SubmitField('Reset Password')
