@@ -27,3 +27,11 @@ class User(db.Model, UserMixin):
 
   def __repr__(self):
     return f"User('{self.username}','{self.email}'"
+
+class Ammo(db.Model):
+  ammotype = db.Column(db.String(20), unique=False, nullable=False)
+  round = db.Column(db.String(20), unique=False, nullable=False)
+  damage = db.Column(db.Integer, unique=False, nullable=False)
+  penetration = db.Column(db.Integer, unique=False, nullable=False)
+  armor_damage = db.Column(db.Integer, unique=False, nullable=False)
+  frag_chance = db.Column(db.Integer, unique=False, nullable=False)
