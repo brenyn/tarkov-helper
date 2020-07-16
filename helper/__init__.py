@@ -6,18 +6,11 @@ from flask_login import LoginManager
 from flask_mail import Mail
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '2a9421a498f13bd18ce8cc0851dd7413'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info' # HTML classes to add to login message
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = os.environ.get('HELPER_MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.environ.get('HELPER_MAIL_PASSWORD')
 mail = Mail(app)
 
 from helper import routes
