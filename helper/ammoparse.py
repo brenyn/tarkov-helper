@@ -1,6 +1,9 @@
-import csv
+import csv, json
 from helper import db
 from helper.models import Ammo
+
+db.drop_all()
+db.create_all()
 
 with open ('helper/ammo-csv.csv') as ammocsv:
   reader = csv.DictReader(ammocsv)
