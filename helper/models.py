@@ -29,9 +29,13 @@ class User(db.Model, UserMixin):
     return f"User('{self.username}','{self.email}'"
 
 class Ammo(db.Model):
-  ammotype = db.Column(db.String(20), unique=False, nullable=False)
+  ammo_id = db.Column(db.Integer, primary_key=True)
+  ammo_type = db.Column(db.String(20), unique=False, nullable=False)
   round = db.Column(db.String(20), unique=False, nullable=False)
   damage = db.Column(db.Integer, unique=False, nullable=False)
   penetration = db.Column(db.Integer, unique=False, nullable=False)
   armor_damage = db.Column(db.Integer, unique=False, nullable=False)
-  frag_chance = db.Column(db.Integer, unique=False, nullable=False)
+  frag_chance = db.Column(db.String, unique=False, nullable=False)
+
+  def __repr__(self):
+    return f"Ammo('{self.ammo_type}','{self.round}', '{self.damage}','{self.penetration}','{self.armor_damage}','{self.frag_chance}'"
