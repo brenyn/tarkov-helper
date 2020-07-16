@@ -21,3 +21,4 @@ app.config['MAIL_PASSWORD'] = os.environ.get('HELPER_MAIL_PASSWORD')
 mail = Mail(app)
 
 from helper import routes
+from helper import handlers
