@@ -9,38 +9,38 @@
   <div class="tab-container">
     <ul class ="tabs">
       {% for ammo in ammoTypes %}
-        <li data-tab-target="#ammo-type-{{ammo['type']}}" class= "tab">{{ammo['type']}}</li>
+        <li data-tab-target="#ammo-type-{{ammo.div_id}}" class= "tab">{{ammo.caliber}}</li>
       {% endfor %}
     </ul>
 
 
-    <div class="tab-content">
+   <div class="tab-content">
       {% for ammo in ammoTypes %}
-        <div id="ammo-type-{{ammo['type']}}" data-tab-content>
-          <h2>{{ammo['type']}} Ammo</h2>
+        <div id="ammo-type-{{ammo.div_id}}" data-tab-content>
+          <h2>{{ammo.caliber}} Ammo</h2>
 
-          <table class="ammo-table">
+           <table class="ammo-table">
             <thead>
               <tr>
                 <th>Round</th>
                 <th>Damage</th>
                 <th>Penetration</th>
                 <th>Armor damage(%)</th>
-                <th>Accuracy(%)</th>
-                <th>Recoil(%)</th>
                 <th>Fragmentation chance(%)</th>
               </tr>
             </thead>
             <tbody>
-              {% for round in ammo['rounds'] %}
+              {% for round in ammo.rounds %}
                 <tr>
-                  <td>{{round['round_name']}}</td>
-                  <td>{{round['damage']}}</td>
-                  <td>{{round['penetration']}}</td>
+                  <td>{{round.round}}</td>
+                  <td>{{round.damage}}</td>
+                  <td>{{round.penetration}}</td>
+                  <td>{{round.armor_damage}}</td>
+                  <td>{{round.frag_chance}}</td>
                 </tr>
               {% endfor %}
             </tbody>
-          </table>
+          </table> 
 
         </div>
       {% endfor %}
