@@ -32,8 +32,22 @@ calibers=['12 Gauge Shot',
   '7.62x51 mm',
   '7.62x54R',
   '12.7x55 mm',]
+
+class Caliber:
+  def __init__(self, caliber):
+    self.caliber = caliber
+    self.rounds=[]
+
 for caliber in calibers:
-  print(caliber)
-#   append dictionary to ammoTypes list w/ keys 'type': caliber, 'rounds':[]
-#   query by caliber
-#   append each round of caliber to list of dictionaries containing round name/stats
+  # append dictionary to ammoTypes list w/ keys 'type': caliber, 'rounds':[]
+  appendCaliber= Caliber(caliber)
+  # query by caliber
+  for ammo in Ammo.query.filter_by(ammo_type=caliber):
+    # print(ammo.round)
+    # append each round of caliber to list of dictionaries containing round name/stats
+    appendCaliber.rounds.append(dict(round=ammo.round, damage=ammo.damage,penetration=ammo.penetration,armor_damage=ammo.armor_damage,frag_chance=ammo.frag_chance))
+  ammoTypes.append(appendCaliber)
+
+print(len(ammoTypes))
+
+# .rounds.append(dict(round_name='test', damage='66'))
