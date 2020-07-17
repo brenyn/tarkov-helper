@@ -1,4 +1,4 @@
-import csv, json
+import csv
 from helper import db
 from helper.models import Ammo
 
@@ -13,3 +13,10 @@ for ammo in ammotypes:
   db_ammo = Ammo(ammo_type=ammo['Ammo Type'], round=ammo['Round'],damage=int(ammo['Damage']), penetration=int(ammo['Pen Value']),armor_damage=int(ammo['Armor Damage %']), frag_chance=ammo['Frag. Chance*'])
   db.session.add(db_ammo)
   db.session.commit()
+
+ammoTypes= []
+calibers=['']
+# for caliber in calibers
+#   append dictionary to ammoTypes list w/ keys 'type': caliber, 'rounds':[]
+#   query by caliber
+#   append each round of caliber to list of dictionaries containing round name/stats

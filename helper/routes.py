@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request
 from helper import app, db, bcrypt, mail
 from helper.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
-from helper.models import User
+from helper.models import User, Ammo
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 
