@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  <link rel="stylesheet" href="../static/styles/base.css">
+  <link rel="stylesheet" href="../static/styles/ammo.css">
+{% endblock styles %}
+
+{% block content %}
+  <div class="tab-container">
+    <ul class ="tabs">
+      {% for quest_giver in quest_givers %}
+        <li data-tab-target="#quest-giver-{{quest_giver.giver}}" class= "tab">{{quest_giver.giver}}</li>
+      {% endfor %}
+    </ul>
+
+    <div class="tab-content">
+      {% for quest_giver in quest_givers %}
+        <div id="quest-giver-{{quest_giver.giver}}" data-tab-content>
+          <h2>{{quest_giver.giver}}</h2>
+        </div>
+      {% endfor %}
+      
+    </div>
+
+  </div>
+{% endblock content %}
