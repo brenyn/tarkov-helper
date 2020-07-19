@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request
 from helper import app, db, bcrypt, mail
 from helper.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
-from helper.models import User, Ammo
+from helper.models import User, Ammo, QuestModel
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 
@@ -50,6 +50,33 @@ for caliber in calibers:
 @app.route("/ammo")
 def ammo():
     return render_template('ammo.html', ammoTypes=ammoTypes, title='Ammo')
+
+##### QUESTS ROUTE #####
+quest_givers = []
+trader_names = ['Prapor',
+'Therapist',
+'Skier',
+'Peacekeeper',
+'Mechanic',
+'Ragman',
+'Jaeger',
+'Fence',]
+
+class QuestGiver:
+  def __init__(self, giver):
+    self.giver = giver
+    self.quests=[]
+
+for trader in trader_names:
+  appendQuestGiver = QuestGiver(trader)
+  # Query quests by trader
+  for quest in QuestModel.query.filter_by(quest_giver=trader):
+    appendQuestGiver.quests.append(dict(quest_title=quest.quest_title, quest_objectives=quest.quest_objectives,quest_rewards=quest.quest_rewards))
+  quest_givers.append(appendQuestGiver)
+
+@app.route("/quests")
+def quests():
+    return render_template('quests.html', quest_givers = quest_givers, title='Quests')
 
 ##### REGISTER ROUTE #####
 @app.route("/register", methods=['GET', 'POST'])
