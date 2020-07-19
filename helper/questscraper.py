@@ -16,13 +16,6 @@ table_classes=['Prapor-content',
 'Jaeger-content',
 'Fence-content',]
 
-# class Quest:
-#   def __init__(self, giver ,quest, objectives, rewards):
-#     self.giver = giver
-#     self.quest = quest
-#     self.objectives = objectives
-#     self.rewards = rewards
-
 r = requests.get('https://escapefromtarkov.gamepedia.com/Quests')
 soup = BeautifulSoup(r.text, 'html.parser')
 
