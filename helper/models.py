@@ -39,3 +39,13 @@ class Ammo(db.Model):
 
   def __repr__(self):
     return f"Ammo('{self.ammo_type}','{self.round}', '{self.damage}','{self.penetration}','{self.armor_damage}','{self.frag_chance}'"
+
+class QuestModel(db.Model):
+  quest_id = db.Column(db.Integer, primary_key=True)
+  quest_giver = db.Column(db.String(20), unique=False, nullable=False)
+  quest_title = db.Column(db.String(30), unique=False, nullable=False)
+  quest_objectives = db.Column(db.String(200), unique=False, nullable=False)
+  quest_rewards = db.Column(db.String(200), unique=False, nullable=False)
+
+  def __repr__(self):
+    return f"QuestModel('{self.quest_giver}',{self.quest_title}',{self.quest_objectives}',{self.quest_rewards}')"
