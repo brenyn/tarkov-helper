@@ -16,10 +16,31 @@
     <div class="tab-content">
       {% for quest_giver in quest_givers %}
         <div id="quest-giver-{{quest_giver.giver}}" data-tab-content>
-          <h2>{{quest_giver.giver}}</h2>
+            <h2>{{quest_giver.giver}}</h2>
+
+          <div class="accordion">
+            {% for quest in quest_giver.quests %}
+              <div class="accordion-item">
+                <div class="accordion-item-header">
+                  {{ quest.quest_title }}
+                </div>
+                <div class="accordion-item-body">
+                  <div class="accordion-item-body-content">
+                    <h3>
+                      Objectives:
+                    </h3>
+                    <p>{{ quest.quest_objectives }}</p>
+                    <h3>
+                      Rewards:
+                    </h3>
+                    <p>{{ quest.quest_rewards }}</p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
         </div>
       {% endfor %}
-      
     </div>
 
   </div>
