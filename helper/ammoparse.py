@@ -2,7 +2,7 @@ import csv
 from helper import db
 from helper.models import Ammo
 
-Ammo.__table__.drop()
+Ammo.__table__.drop(db.engine)
 db.create_all()
 
 with open ('helper/ammo-csv.csv') as ammocsv:
