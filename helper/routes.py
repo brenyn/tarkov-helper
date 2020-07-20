@@ -5,6 +5,8 @@ from helper.models import User, Ammo, QuestModel
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 
+#quest_objectives.replace("/t", "<br>")
+
 
 ##### HOME ROUTE #####
 @app.route("/")
@@ -71,7 +73,9 @@ for trader in trader_names:
   appendQuestGiver = QuestGiver(trader)
   # Query quests by trader
   for quest in QuestModel.query.filter_by(quest_giver=trader):
-    appendQuestGiver.quests.append(dict(quest_title=quest.quest_title, quest_objectives=quest.quest_objectives,quest_rewards=quest.quest_rewards))
+    quest_objectives = quest.quest_objectives.split('/t')
+    quest_rewards = quest.quest_rewards.split('/t')
+    appendQuestGiver.quests.append(dict(quest_title=quest.quest_title, quest_objectives=quest_objectives,quest_rewards=quest_rewards))
   quest_givers.append(appendQuestGiver)
 
 @app.route("/quests")
