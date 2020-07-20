@@ -30,11 +30,19 @@
                     <h3>
                       Objectives:
                     </h3>
-                    <p>{{ quest.quest_objectives }}</p>
+                    <ul> 
+                      {% for objective in quest.quest_objectives %}
+                          <li>{{ objective }}</li>
+                      {% endfor %}
+                    </ul>
                     <h3>
                       Rewards:
                     </h3>
-                    <p>{{ quest.quest_rewards }}</p>
+                    <ul> 
+                      {% for reward in quest.quest_rewards %}
+                        <li>{{ reward }}</li>
+                      {% endfor %}
+                    </ul>
                   </div>
                 </div>
               </div>
