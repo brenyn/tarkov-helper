@@ -31,10 +31,14 @@ for table_class in table_classes:
     quest_objectives= ""
     for li in quest_objectivesHTML:
       quest_objectives += li.text.strip() + "/t"
+    quest_objectives = quest_objectives[:-1:]
+    quest_objectives = quest_objectives[:-1:]
     quest_rewardsHTML = quest_cells[1].find_all("li")
     quest_rewards=""
     for li in quest_rewardsHTML:
       quest_rewards += li.text.strip() +"/t"
+    quest_rewards = quest_rewards[:-1:]
+    quest_rewards = quest_rewards[:-1:]
     db_quest = QuestModel(quest_giver=table.th.a.text.strip(), quest_title=quest_title, quest_objectives=quest_objectives,quest_rewards=quest_rewards)
     db.session.add(db_quest)
     db.session.commit()
