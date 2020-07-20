@@ -7,6 +7,12 @@
   --un-blue: #2690d4;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin:0px;
   padding: 0px;
@@ -32,12 +38,12 @@ img {
 
 h1,h2,h3{
   margin: 0em;
-  padding: 1em 0;
+  padding: 1rem 0;
 }
 
 p{
   margin: 0;
-  padding: 1em 0;
+  padding: 1rem 0;
 }
 
 .btn{

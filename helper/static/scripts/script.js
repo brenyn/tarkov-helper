@@ -44,5 +44,23 @@ const makeTabs = () => {
     });
 }
 
+/********** ACCORDION FUNCTION **********/
+const accordionSlide = () =>{
+    const accordionItemHeader = document.querySelectorAll(".accordion-item-header");
+    accordionItemHeader.forEach(header=>{
+        header.addEventListener("click", e=>{
+            header.classList.toggle("active")
+            const accordionItemBody = header.nextElementSibling;
+            if(header.classList.contains("active")){
+                accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight +"px"
+            }
+            else{
+                accordionItemBody.style.maxHeight = 0;
+            }
+        })
+    })
+}
+
 navSlide();
 makeTabs();
+accordionSlide();

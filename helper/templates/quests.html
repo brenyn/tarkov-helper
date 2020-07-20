@@ -3,6 +3,7 @@
 {% block styles %}
   <link rel="stylesheet" href="../static/styles/base.css">
   <link rel="stylesheet" href="../static/styles/ammo.css">
+  <link rel="stylesheet" href="../static/styles/accordion.css">
 {% endblock styles %}
 
 {% block content %}
@@ -22,7 +23,7 @@
             {% for quest in quest_giver.quests %}
               <div class="accordion-item">
                 <div class="accordion-item-header">
-                  {{ quest.quest_title }}
+                  <h2>{{ quest.quest_title }}</h2>
                 </div>
                 <div class="accordion-item-body">
                   <div class="accordion-item-body-content">
